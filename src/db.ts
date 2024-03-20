@@ -5,12 +5,12 @@ import { mongoConfig } from './config/config'
 dotenv.config();
 const { username, password, host, port, database, authSource} = mongoConfig
 
-const mongoURI = `mongodb://${username}:${password}@${host}:${port}/?authSource=${authSource}`;
+const mongoURI = `mongodb://${username}:${password}@${host}:${port}/${database}`;
 
 
 export async function connectMongoDB() {
   mongoose
-    .connect(mongoURI) 
+    .connect(mongoURI, {authSource: authSource}) 
     .then(() => {
       console.log("Connected to MongoDB");
     })
