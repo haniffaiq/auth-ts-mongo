@@ -9,7 +9,7 @@ export const register = async (req: Request, res: Response) => {
     const hashedPassword = await hash(password, 10);
     const user = new User({ username, email, password: hashedPassword });
     await user.save();
-    res.status(201).json({ message: 'User registered successfully', user });
+    res.status(201).json({ message: 'User registered successfully ygy', user });
   } catch (error: any) {
     res.status(400).json({ message: error.message });
   }
